@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<head>
+   
+    <title>TEXT SPEECH CONVERTER</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="container">
+    <h1>TEXT SPEECH CONVERTER</h1>
+    <textarea id="textTospeak"></textarea>
+    <button onclick="speak()">Text to speak</button>
+</div>
+<script>
+  var speech = new SpeechSynthesisUtterance();
+
+  function speak() {
+    var textToSpeak = document.getElementById('textTospeak').value;
+    speech.text = textToSpeak;
+
+    speech.rate = 1;
+    speech.volume = 1; // Volume should be between 0 and 1
+    speech.pitch = 1;
+
+    window.speechSynthesis.speak(speech);
+  }
+</script>
+
+</body>
+</html>
